@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Inscription
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    body
+        nav
+            ul.nav
+                li.navbar
+                    a(href='/') Accueil
+                li.navbar
+                    a(href='/search') Rechercher
+                li.navbar
+                    a(href='/inscription') S'inscrire
+                li.navbar
+                    a(href='/connect') Se connecter
+        h1 Inscription
+        main
+            form(method='POST')
+                div.form-group
+                    label(for='first_name') Nom:
+                    input#name.form-control(type='text', placeholder='Votre nom' name='first_name')
+                div.form-group
+                    label(for='last_name') Prénom:
+                    input#name.form-control(type='text', placeholder='Votre prénom' name='last_name')
+                div.form-group
+                    label(for='email') Email:
+                    input#email.form-control(type='email', placeholder='Votre Email' name='email')
+                div.form-group
+                    label(for='pw') Mot de passe:
+                    input#pw.form-control(type='password' name='password')
+                div.form-group
+                    label(for='pw2') Confirmation du mot de passe:
+                    input#pw2.form-control(type='password' name='confirmPassword')
+                button.btn.btn-primary(type='submit') S'inscrire
+        script(src=process.env.BROWSER_REFRESH_URL)

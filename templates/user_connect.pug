@@ -4,7 +4,7 @@ html(lang="fr")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title MonECommerce
+        title Inscription
         link(rel='stylesheet' href='/css/style.css')
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
     body
@@ -18,7 +18,14 @@ html(lang="fr")
                     a(href='/inscription') S'inscrire
                 li.navbar
                     a(href='/connect') Se connecter
-        h1 Mon Site E-Commerce
+        h1 Connexion
         main
-
+            form(method='POST')
+                div.form-group
+                    label(for='email') Email:
+                    input#email.form-control(type='email', placeholder='Votre Email' name='email')
+                div.form-group
+                    label(for='pw') Mot de passe:
+                    input#pw.form-control(type='password' name='password')
+                button.btn.btn-primary(type='submit') Connexion
         script(src=process.env.BROWSER_REFRESH_URL)

@@ -22,3 +22,7 @@ h1{
     color: #2b9fe7;
     text-align: center;
 }
+main{
+    width: 70%;
+    margin: auto;
+}

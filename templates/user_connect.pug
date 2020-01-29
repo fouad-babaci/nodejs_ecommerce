@@ -19,7 +19,9 @@ html(lang="fr")
                 li.navbar
                     a(href='/connect') Se connecter
         h1 Connexion
-        main
+        if erreur
+            div.alert.alert-danger.flashbag #{erreur}
+        main.container
             form(method='POST')
                 div.form-group
                     label(for='email') Email:

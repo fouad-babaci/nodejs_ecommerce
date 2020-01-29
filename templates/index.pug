@@ -19,6 +19,8 @@ html(lang="fr")
                 li.navbar
                     a(href='/connect') Se connecter
         h1 Mon Site E-Commerce
-        main
+        if connect
+            div.alert.alert-success.flashbag #{connect}
+        main.container
 
         script(src=process.env.BROWSER_REFRESH_URL)

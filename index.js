@@ -5,10 +5,18 @@ const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const config = require("./app/config.js");
 const mongoose = require('mongoose');
+const session = require('express-session');
+const flash = require('express-flash');
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
- 
-
+app.use(session({
+  secret: config.appKey, resave:false,saveUninitialized:false, 
+  cookie: {maxAge: 3600000} 
+}))
+// permet de renvoyer les sessions à la vue
+app.use((req,res,next) => {res.locals.session = req.session; next();});
+app.use(flash());
 
 //connexion mongo db
 mongoose.connect(config.db_mongo, {useNewUrlParser: true});

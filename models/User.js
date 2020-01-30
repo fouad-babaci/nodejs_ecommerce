@@ -23,15 +23,16 @@ module.exports = class User {
 
     connect(email, password) {
         return new Promise((resolve, rejected) => {
-            Users.findOne({ email: email }, function (err, result) {
-                if (err) return console.log(err);
-                bcrypt.compare(password, result.password, function(err, isMatch){
-                    if (err) return console.log(err+" connexion échoué");
-                    resolve(isMatch);
+            Users.findOne({ email: email }, function (err, user) {
+                if (err) rejected(err);
+                if(bcrypt.compareSync(password, user.password)){
+                    resolve(user);
+                }
+                    resolve(false);
                 })
             });
-        });
     }
+
     add(req, res) {
         //hashage du password
         var hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));

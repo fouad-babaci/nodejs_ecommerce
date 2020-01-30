@@ -15,6 +15,11 @@ module.exports = (app) => {
         let Connect = new Controller();
         Connect.connect_form(req, res);
     })
+    app.get('/deconnect', function(req, res) {
+        let Controller = require("../controllers/Connect.js");
+        let Connect = new Controller();
+        Connect.deconnect_user(req, res);
+    })
     app.post('/inscription', function(req, res) {
         let Controller = require("../controllers/Register.js");
         let Register = new Controller();

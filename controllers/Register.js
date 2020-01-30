@@ -17,6 +17,13 @@ module.exports = class Register {
             return; 
         }
         User.add(req, res);
+        req.session.login = true;
+        req.session.user = {
+            first_name :req.body.first_name,
+            last_name : req.body.last_name,
+            email : req.body.email
+        };
+        req.flash('info', 'Votre inscription a bien été prise en compte');
         res.redirect('/');
     }
 }

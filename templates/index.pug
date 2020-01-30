@@ -14,13 +14,19 @@ html(lang="fr")
                     a(href='/') Accueil
                 li.navbar
                     a(href='/search') Rechercher
-                li.navbar
-                    a(href='/inscription') S'inscrire
-                li.navbar
-                    a(href='/connect') Se connecter
+                if session.login
+                    li.navbar
+                        a(href='/deconnect') Se deconnecter
+                else
+                    li.navbar
+                        a(href='/inscription') S'inscrire
+                    li.navbar
+                        a(href='/connect') Se connecter
+            if session.login
+                p.text-right.font-italic Bonjour #{session.user.first_name + " " + session.user.last_name} !
+        if (messages.info)
+            .alert.alert-success.text-center
+             span= messages.info
         h1 Mon Site E-Commerce
-        if connect
-            div.alert.alert-success.flashbag #{connect}
         main.container
-
         script(src=process.env.BROWSER_REFRESH_URL)
